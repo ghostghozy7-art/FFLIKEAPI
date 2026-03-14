@@ -70,14 +70,14 @@ def get_random_batch_tokens(server_name, all_tokens):
 
 def load_tokens(server_name, for_visit=False):
     if for_visit:
-        if server_name == "ID":
+        if server_name == "IND":
             path = "token_id_visit.json"
         elif server_name in {"BR", "US", "SAC", "NA"}:
             path = "token_br_visit.json"
         else:
             path = "token_bd_visit.json"
     else:
-        if server_name == "ID":
+        if server_name == "IND":
             path = "token_id.json"
         elif server_name in {"BR", "US", "SAC", "NA"}:
             path = "token_br.json"
@@ -181,8 +181,8 @@ def make_profile_check_request(encrypted_profile_payload, server_name, token_dic
         print("Warning: make_profile_check_request received an empty token_dict.")
         return None
 
-    if server_name == "id":
-        url = "https://clientbp.ggblueshark.com/GetPlayerPersonalShow"
+    if server_name == "IND":
+        url = "https://client.ind.freefiremobile.com/GetPlayerPersonalShow"
     elif server_name in {"BR", "US", "SAC", "NA"}:
         url = "https://client.us.freefiremobile.com/GetPlayerPersonalShow"
     else:
@@ -271,8 +271,8 @@ def handle_requests():
     print(f"UID {uid_param} ({server_name_param}): Likes before = {before_like_count}")
 
     # Determine the URL for sending likes
-    if server_name_param == "ID":
-        like_api_url = "https://clientbp.ggblueshark.com/LikeProfile"
+    if server_name_param == "IND":
+        like_api_url = "https://client.ind.freefiremobile.com/LikeProfile"
     elif server_name_param in {"BR", "US", "SAC", "NA"}:
         like_api_url = "https://client.us.freefiremobile.com/LikeProfile"
     else:
@@ -333,7 +333,7 @@ def handle_requests():
 @app.route('/token_info', methods=['GET'])
 def token_info():
     """Endpoint to check token counts for each server"""
-    servers = ["ID", "BD", "BR", "US", "SAC", "NA"]
+    servers = ["IND", "BD", "BR", "US", "SAC", "NA"]
     info = {}
     
     for server in servers:
