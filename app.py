@@ -182,7 +182,7 @@ def make_profile_check_request(encrypted_profile_payload, server_name, token_dic
         return None
 
     if server_name == "IND":
-        url = "https://client.ind.freefiremobile.com/GetPlayerPersonalShow"
+        url = "https://clientbp.ggpolarbear.com/GetPlayerPersonalShow"
     elif server_name in {"BR", "US", "SAC", "NA"}:
         url = "https://client.us.freefiremobile.com/GetPlayerPersonalShow"
     else:
@@ -272,7 +272,7 @@ def handle_requests():
 
     # Determine the URL for sending likes
     if server_name_param == "IND":
-        like_api_url = "https://client.ind.freefiremobile.com/LikeProfile"
+        like_api_url = "https://clientbp.ggpolarbear.com/LikeProfile"
     elif server_name_param in {"BR", "US", "SAC", "NA"}:
         like_api_url = "https://client.us.freefiremobile.com/LikeProfile"
     else:
